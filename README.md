@@ -17,12 +17,12 @@ You can add your own new class files by naming them correctly and putting the fi
 * `classes/App/Frontend` - all public-facing functionality
 * `classes/App/Backend` - all admin-specific functionality
 * `classes/App/General` - functionality shared between the back-end and frontend
-* `classes/App/Cli` - code for cli integrations
+* `classes/App/Cli` - code for cli commands
 * `classes/App/Cron` - code for cron events
-* `classes/App/Rest` - code for rest API functionalities
+* `classes/App/Rest` - code for rest api functionalities
 * `classes/Config` - plugin configuration code
 * `classes/Common` - utilities shared in the whole plugin application
-* `classes/Integrations` - includes the integration with libraries, API's or other plugins
+* `classes/Integrations` - includes the integration with libraries, api's or other plugins
 * `classes/Compatability` - 3rd party compatibility code
 * `templates` - all the template files
 * `tests` - all the tests using Codeception
