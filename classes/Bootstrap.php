@@ -31,7 +31,7 @@ final class Bootstrap extends Base
      *
      * @var array
      */
-    public $bootstrap = [ 'debug' => true ];
+    public $bootstrap = [ 'debug' => false ];
 
     /**
      * Determine what we're requesting
