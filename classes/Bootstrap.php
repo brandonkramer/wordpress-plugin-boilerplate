@@ -26,19 +26,19 @@ final class Bootstrap extends Base
 {
 
     /**
+     * Determine what we're requesting
+     *
+     * @see Requester
+     */
+    use Requester;
+
+    /**
      * Used to debug the Bootstrap class, this will print a visualised array if set true
      * to see which classes are loaded and the elapsed execution time
      *
      * @var array
      */
     public $bootstrap = [ 'debug' => false ];
-
-    /**
-     * Determine what we're requesting
-     *
-     * @see Requester
-     */
-    use Requester;
 
     /**
      * List of class to init
@@ -106,11 +106,12 @@ final class Bootstrap extends Base
      */
     public function checkRequirements ()
     {
-        $setTimer           = microtime( true );
+        $setTimer = microtime( true );
         $this->requirements = new Requirements();
         $this->requirements->check();
         $this->bootstrap[ 'check_requirements' ] = $this->stopExecutionTimer( $setTimer );
     }
+
 
     /**
      * Define the locale for this plugin for internationalization.
@@ -119,7 +120,7 @@ final class Bootstrap extends Base
      */
     public function setLocale ()
     {
-        $setTimer   = microtime( true );
+        $setTimer = microtime( true );
         $this->i18n = new I18n();
         $this->i18n->load();
         $this->bootstrap[ 'set_locale' ] = $this->stopExecutionTimer( $setTimer );
@@ -320,7 +321,9 @@ final class Bootstrap extends Base
      */
     public function startExecutionTimer ()
     {
-        $this->bootstrap[ 'execution_time' ][ 'start' ] = microtime( true );
+        if ( $this->bootstrap[ 'debug' ] === true ) {
+            $this->bootstrap[ 'execution_time' ][ 'start' ] = microtime( true );
+        }
     }
 
     /**
@@ -331,7 +334,11 @@ final class Bootstrap extends Base
      */
     public function stopExecutionTimer ( $timer, $tag = 'Execution time' ): string
     {
-        return 'Elapsed: ' . ( microtime( true ) - $this->bootstrap[ 'execution_time' ][ 'start' ] ) . ' | ' . $tag . ': ' . ( microtime( true ) - $timer );
+        if ( $this->bootstrap[ 'debug' ] === true ) {
+            return 'Elapsed: ' . ( microtime( true ) - $this->bootstrap[ 'execution_time' ][ 'start' ] ) . ' | ' . $tag . ': ' . ( microtime( true ) - $timer );
+        } else {
+            return '';
+        }
     }
 
     /**
