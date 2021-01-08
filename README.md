@@ -1,6 +1,8 @@
 # WordPress Plugin Boilerplate
 An organized, object-oriented, and lightweight boilerplate for testable WordPress plugin development
 
+[![Build Status](https://api.travis-ci.org/wp-strap/wordpress-plugin-boilerplate.svg?branch=master&status=passed)](https://travis-ci.org/github/wp-strap/wordpress-plugin-boilerplate)
+![PHP 7.1+](https://img.shields.io/badge/PHP-7.1%2B-brightgreen)
 
 ## Installation
 Install directly into the plugins folder of a WordPress installation and then rename from `wordpress-plugin-boilerplate` to whatever you want your plugin to be named:
