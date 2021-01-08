@@ -1,0 +1,29 @@
+# IDE
+.idea
+
+# Node
+node_modules
+
+# Composer
+vendor
+package-lock.json
+composer.lock
+
+# PHP
+phpunit.xml
+phpcs.xml
+.phpcs.xml
+
+# Others
+*.diff
+*.err
+*.orig
+*.log
+*.rej
+*.swo
+*.swp
+*.vi
+*~
+*.sass-cache
+*.lock
+cache

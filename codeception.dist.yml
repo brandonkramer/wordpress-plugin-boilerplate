@@ -1,0 +1,34 @@
+actor: Tester
+actor_suffix: Tester
+paths:
+    tests: tests
+    output: tests/_output
+    data: tests/_data
+    support: tests/_support
+    envs: tests/_envs
+bootstrap: PluginTestsBootstrap.php
+settings:
+    colors: true
+    memory_limit: 1024M
+params:
+    - .env.testing
+coverage:
+    enabled: true
+    exclude:
+        - vendor/*
+    include:
+        - classes/*
+    low_limit: 30
+    high_limit: 75
+extensions:
+    enabled:
+        - Codeception\ProgressReporter\ProgressReporter
+        - Codeception\Extension\RunFailed
+    commands:
+        - Codeception\Command\GenerateWPUnit
+        - Codeception\Command\GenerateWPRestApi
+        - Codeception\Command\GenerateWPRestController
+        - Codeception\Command\GenerateWPRestPostTypeController
+        - Codeception\Command\GenerateWPAjax
+        - Codeception\Command\GenerateWPCanonical
+        - Codeception\Command\GenerateWPXMLRPC
