@@ -15,6 +15,6 @@
      * @see \ThePluginName\App\Frontend\Templates
      * @var $args
      */
-    echo __( 'This is being loaded inside the footer from The Plugin Name in the templates class', 'the-plugin-text-domain' ) . ' ' . $args[ 'arbitrary_data' ][ 'text' ];
+    echo __( 'This is being loaded inside "wp_footer" from the templates class', 'the-plugin-text-domain' ) . ' ' . $args[ 'data' ][ 'text' ];
     ?>
 </p>

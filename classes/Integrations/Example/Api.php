@@ -9,9 +9,9 @@
  * @link      {{author_url}}
  */
 
-namespace ThePluginName\Integrations\Example;
+declare( strict_types = 1 );
 
-use ThePluginName\Bootstrap;
+namespace ThePluginName\Integrations\Example;
 
 /**
  * Class Api
@@ -19,21 +19,19 @@ use ThePluginName\Bootstrap;
  * @package ThePluginName\Integrations\Example
  * @since 1.0.0
  */
-class Api
-{
+class Api {
 
-    /**
-     * Initialize the class.
-     *
-     * @since 1.0.0
-     */
-    public function init ()
-    {
-        /**
-         * Add integration code here.
-         * Integration classes instantiates before anything else
-         *
-         * @see Bootstrap::__construct
-         */
-    }
+	/**
+	 * Initialize the class.
+	 *
+	 * @since 1.0.0
+	 */
+	public function init() {
+		/**
+		 * Add integration code here.
+		 * Integration classes instantiates before anything else
+		 *
+		 * @see Bootstrap::__construct
+		 */
+	}
 }

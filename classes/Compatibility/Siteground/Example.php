@@ -9,9 +9,9 @@
  * @link      {{author_url}}
  */
 
-namespace ThePluginName\Compatibility\Siteground;
+declare( strict_types = 1 );
 
-use ThePluginName\Bootstrap;
+namespace ThePluginName\Compatibility\Siteground;
 
 /**
  * Class Example
@@ -19,36 +19,34 @@ use ThePluginName\Bootstrap;
  * @package ThePluginName\Compatibility\Siteground
  * @since 1.0.0
  */
-class Example
-{
+class Example {
 
-    /**
-     * Initialize the class.
-     *
-     * @since 1.0.0
-     */
-    public function init ()
-    {
-        /**
-         * Add 3rd party compatibility code here.
-         * Compatibility classes instantiates after anything else
-         *
-         * @see Bootstrap::__construct
-         */
-        add_filter( 'sgo_css_combine_exclude', [ $this, 'excludeCssCombine' ] );
-    }
+	/**
+	 * Initialize the class.
+	 *
+	 * @since 1.0.0
+	 */
+	public function init() {
+		/**
+		 * Add 3rd party compatibility code here.
+		 * Compatibility classes instantiates after anything else
+		 *
+		 * @see Bootstrap::__construct
+		 */
+		add_filter( 'sgo_css_combine_exclude', [ $this, 'excludeCssCombine' ] );
+	}
 
-    /**
-     * Siteground optimizer compatibility.
-     *
-     * @param array $exclude_list
-     *
-     * @return array
-     */
-    public function excludeCssCombine ( array $exclude_list ): array
-    {
-        $exclude_list[] = 'plugin-name-frontend-css';
+	/**
+	 * Siteground optimizer compatibility.
+	 *
+	 * @param array $exclude_list
+	 *
+	 * @return array
+	 * @since 1.0.0
+	 */
+	public function excludeCssCombine( array $exclude_list ): array {
+		$exclude_list[] = 'plugin-name-frontend-css';
 
-        return $exclude_list;
-    }
+		return $exclude_list;
+	}
 }

@@ -9,6 +9,8 @@
  * @link      {{author_url}}
  */
 
+declare( strict_types = 1 );
+
 namespace ThePluginName\App\Frontend;
 
 use ThePluginName\Common\Abstracts\Base;
@@ -19,41 +21,37 @@ use ThePluginName\Common\Abstracts\Base;
  * @package ThePluginName\App\Frontend
  * @since 1.0.0
  */
-class FormFields extends Base
-{
+class FormFields extends Base {
 
-    /**
-     * Initialize the class.
-     *
-     * @since 1.0.0
-     */
-    public function init ()
-    {
-        /**
-         * This frontend class is only being instantiated in the frontend as requested in the Bootstrap class
-         *
-         * @see Requester::isFrontend()
-         * @see Bootstrap::__construct
-         *
-         * Add plugin code here for form fields specific functions
-         */
-        add_filter( 'woocommerce_form_field_args', [ $this, 'woocommerceFormFieldArgsExample' ], 10, 3 );
-    }
+	/**
+	 * Initialize the class.
+	 *
+	 * @since 1.0.0
+	 */
+	public function init() {
+		/**
+		 * This frontend class is only being instantiated in the frontend as requested in the Bootstrap class
+		 *
+		 * @see Requester::isFrontend()
+		 * @see Bootstrap::__construct
+		 *
+		 * Add plugin code here for form fields specific functions
+		 */
+		add_filter( 'woocommerce_form_field_args', [ $this, 'woocommerceFormFieldArgsExample' ], 10, 3 );
+	}
 
-    /**
-     * Example
-     *
-     * @param $data
-     * @param $key
-     * @param $value
-     * @return mixed
-     * @since 1.0.0
-     */
-    public function woocommerceFormFieldArgsExample ( $data, $key, $value )
-    {
-        if ( 'billing_phone' === $key ) {
-            $data[ 'custom_attributes' ][ 'pattern' ] = '^(\\(?\\+?[0-9]*\\)?)?[0-9_\\- \\(\\)]*$';
-        }
-        return $data;
-    }
+	/**
+	 * Example
+	 *
+	 * @param $data
+	 * @param $key
+	 * @return mixed
+	 * @since 1.0.0
+	 */
+	public function woocommerceFormFieldArgsExample( $data, $key ): array {
+		if ( 'billing_phone' === $key ) {
+			$data['custom_attributes']['pattern'] = '^(\\(?\\+?[0-9]*\\)?)?[0-9_\\- \\(\\)]*$';
+		}
+		return $data;
+	}
 }

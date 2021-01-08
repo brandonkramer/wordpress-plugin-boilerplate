@@ -9,6 +9,8 @@
  * @link      {{author_url}}
  */
 
+declare( strict_types = 1 );
+
 namespace ThePluginName\Common\Traits;
 
 /**
@@ -17,23 +19,26 @@ namespace ThePluginName\Common\Traits;
  * @package ThePluginName\Common\Traits
  * @since 1.0.0
  */
-trait Singleton
-{
-    private static $instance;
+trait Singleton {
+	private static $instance;
 
-    private final function __construct() {}
-    private final function __clone() {}
-    private final function __wakeup() {}
+	final private function __construct() {
+	}
 
-    /**
-     * @return self
-     * @since 1.0.0
-     */
-    public final static function init(): self
-    {
-        if(!self::$instance) {
-            self::$instance = new self;
-        }
-        return self::$instance;
-    }
+	final private function __clone() {
+	}
+
+	final private function __wakeup() {
+	}
+
+	/**
+	 * @return self
+	 * @since 1.0.0
+	 */
+	final public static function init(): self {
+		if ( ! self::$instance ) {
+			self::$instance = new self();
+		}
+		return self::$instance;
+	}
 }
