@@ -1,7 +1,7 @@
 {
   "name": "wpstrap/wordpress-plugin-boilerplate",
   "description": "Wordpress Plugin Boilerplate",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "minimum-stability": "stable",
   "prefer-stable": true,
   "type": "wordpress-plugin",
