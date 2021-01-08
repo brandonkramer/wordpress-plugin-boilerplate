@@ -30,5 +30,7 @@ You can add your own new class files by naming them correctly and putting the fi
 
 ### Acceptance & Unit Testing
   - Testing with Codeception works out of the box
+  - Configure the environments settings in .env.testing
   - Create test files with `composer generate:wpunit` or `composer generate:acceptance`
   - Write your test methods and run `composer run:wpunit` or `composer run:acceptance`
+  - Extensive documentation can be found here https://codeception.com/for/wordpress  
