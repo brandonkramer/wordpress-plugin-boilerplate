@@ -26,6 +26,14 @@ final class Bootstrap extends Base
 {
 
     /**
+     * Used to debug the Bootstrap class, this will print a visualised array if set true
+     * to see which classes are loaded and the elapsed execution time
+     *
+     * @var array
+     */
+    public $bootstrap = [ 'debug' => true ];
+
+    /**
      * Determine what we're requesting
      *
      * @see Requester
@@ -38,13 +46,6 @@ final class Bootstrap extends Base
      * @var array : classes
      */
     public $classList = [];
-
-    /**
-     * List of initialized class to init
-     *
-     * @var array : classes
-     */
-    public $initialized = [];
 
     /**
      * Composer autoload file list
@@ -81,7 +82,8 @@ final class Bootstrap extends Base
     {
         parent::__construct();
 
-        $this->requirements();
+        $this->startExecutionTimer();
+        $this->checkRequirements();
         $this->setLocale();
         $this->getClassLoader( $composer );
         $this->loadClasses( [
@@ -94,6 +96,7 @@ final class Bootstrap extends Base
             [ 'init' => 'App\\Backend', 'on_request' => 'backend' ],
             [ 'init' => 'Compatibility' ]
         ] );
+        $this->debugger();
     }
 
     /**
@@ -101,10 +104,12 @@ final class Bootstrap extends Base
      *
      * @since 1.0.0
      */
-    public function requirements ()
+    public function checkRequirements ()
     {
+        $setTimer           = microtime( true );
         $this->requirements = new Requirements();
         $this->requirements->check();
+        $this->bootstrap[ 'check_requirements' ] = $this->stopExecutionTimer( $setTimer );
     }
 
     /**
@@ -114,8 +119,10 @@ final class Bootstrap extends Base
      */
     public function setLocale ()
     {
+        $setTimer   = microtime( true );
         $this->i18n = new I18n();
         $this->i18n->load();
+        $this->bootstrap[ 'set_locale' ] = $this->stopExecutionTimer( $setTimer );
     }
 
     /**
@@ -137,6 +144,7 @@ final class Bootstrap extends Base
      */
     public function loadClasses ( $classes )
     {
+        $setTimer = microtime( true );
         foreach ( $classes as $class ) {
             if ( isset( $class[ 'on_request' ] ) && is_array( $class[ 'on_request' ] )
             ) {
@@ -150,6 +158,7 @@ final class Bootstrap extends Base
             $this->getClasses( $class[ 'init' ] );
         }
         $this->initClasses();
+        $this->bootstrap[ 'initialized_classes' ][ 'timer' ] = $this->stopExecutionTimer( $setTimer, 'Total execution time of initialized classes' );
     }
 
     /**
@@ -162,8 +171,11 @@ final class Bootstrap extends Base
         $this->classList = \apply_filters( 'the_plugin_name_initialized_classes', $this->classList );
         foreach ( $this->classList as $class ) {
             try {
-                $this->initialized[ $class ] = new $class;
-                $this->initialized[ $class ]->init();
+                $setTimer = microtime( true );
+
+                $this->bootstrap[ 'initialized_classes' ][ $class ] = new $class;
+                $this->bootstrap[ 'initialized_classes' ][ $class ]->init();
+                $this->bootstrap[ 'initialized_classes' ][ $class ] = $this->stopExecutionTimer( $setTimer );
             } catch ( \Throwable $err ) {
                 \do_action( 'the_plugin_name_class_initialize_failed', $err, $class );
                 Errors::wpDie(
@@ -193,7 +205,9 @@ final class Bootstrap extends Base
             // which will improve the performance. This is only possible if the Autoloader
             // has been optimized.
             if ( isset( $classmap[ $this->plugin->namespace() . '\\Bootstrap' ] ) ) {
-
+                if ( !isset( $this->bootstrap[ 'initialized_classes' ][ 'load_by' ] ) ) {
+                    $this->bootstrap[ 'initialized_classes' ][ 'load_by' ] = 'Autoloader';
+                }
                 $classes = array_keys( $classmap );
                 foreach ( $classes as $class ) {
                     if ( 0 !== strncmp( (string)$class, $namespace, strlen( $namespace ) ) ) {
@@ -227,7 +241,9 @@ final class Bootstrap extends Base
      */
     public function getByExtraction ( $namespace ): array
     {
-        echo 'init Classes by Extraction <BR>';
+        if ( !isset( $this->bootstrap[ 'initialized_classes' ][ 'load_by' ] ) ) {
+            $this->bootstrap[ 'initialized_classes' ][ 'load_by' ] = 'Extraction; Try a `composer dumpautoload -o` to optimize the autoloader.';
+        }
         $find_all_classes = [];
         foreach ( $this->filesFromThisDir() as $file ) {
             $file_data        = [
@@ -294,6 +310,47 @@ final class Bootstrap extends Base
             if ( strpos( $class, $namespace ) === 0 ) {
                 $this->classList[] = $class;
             }
+        }
+    }
+
+    /**
+     * Start the execution timer of the plugin
+     *
+     * @since 1.0.0
+     */
+    public function startExecutionTimer ()
+    {
+        $this->bootstrap[ 'execution_time' ][ 'start' ] = microtime( true );
+    }
+
+    /**
+     * @param $timer
+     * @param string $tag
+     * @return string
+     * @since 1.0.0
+     */
+    public function stopExecutionTimer ( $timer, $tag = 'Execution time' ): string
+    {
+        return 'Elapsed: ' . ( microtime( true ) - $this->bootstrap[ 'execution_time' ][ 'start' ] ) . ' | ' . $tag . ': ' . ( microtime( true ) - $timer );
+    }
+
+    /**
+     * Visual presentation of the classes that are loaded
+     */
+    public function debugger ()
+    {
+        if ( $this->bootstrap[ 'debug' ] === true ) {
+            $this->bootstrap[ 'execution_time' ] =
+                'Total execution time in seconds: ' . ( microtime( true ) - $this->bootstrap[ 'execution_time' ][ 'start' ] );
+            add_action( 'shutdown', function () {
+                ini_set( "highlight.comment", "#969896; font-style: italic" );
+                ini_set( "highlight.default", "#FFFFFF" );
+                ini_set( "highlight.html", "#D16568; font-size: 13px; padding: 0; display: block;" );
+                ini_set( "highlight.keyword", "#7FA3BC; font-weight: bold; padding:0;" );
+                ini_set( "highlight.string", "#F2C47E" );
+                $output = highlight_string( "<?php\n\n" . var_export( $this->bootstrap, true ), true );
+                echo "<div style=\"background-color: #1C1E21; padding:5px; position: fixed; z-index:9999; bottom:0;\">{$output}</div>";
+            } );
         }
     }
 }
