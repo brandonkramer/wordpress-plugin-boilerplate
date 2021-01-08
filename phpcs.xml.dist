@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<ruleset name="The Plugin Name ruleset">
+    <description>Ruleset for the The Plugin Name.</description>
+
+    <file>the-plugin-name.php</file>
+    <file>./classes/</file>
+
+    <!-- Additional arguments. -->
+    <arg value="sp"/>
+    <arg name="basepath" value="."/>
+    <arg name="parallel" value="8"/>
+    <arg name="cache"/>
+    <arg name="extensions" value="php"/>
+    <!-- Check for PHP cross-version compatibility. -->
+    <config name="testVersion" value="7.1-"/>
+    <rule ref="PHPCompatibilityWP">
+        <include-pattern>*\.php$</include-pattern>
+    </rule>
+    <rule ref="Generic.CodeAnalysis.UnusedFunctionParameter"/>
+    <rule ref="Generic.Commenting.Todo"/>
+    <rule ref="Generic.CodeAnalysis.UnusedFunctionParameter.Found">
+        <severity>0</severity>
+    </rule>
+    <!-- WordPress coding standards. -->
+    <!-- https://github.com/WordPress/WordPress-Coding-Standards/wiki/Customizable-sniff-properties -->
+    <config name="minimum_supported_wp_version" value="5.5"/>
+    <rule ref="WordPress">
+        <!-- Exclude as plugin adheres to the PSR-4 standard. -->
+        <exclude name="WordPress.Files.FileName"/>
+        <exclude name="NeutronStandard.AssignAlign.DisallowAssignAlign.Aligned"/>
+    </rule>
+    <!--https://github.com/WordPress/WordPress-Coding-Standards/wiki/Customizable-sniff-properties#custom-input-sanitization-functions-->
+    <rule ref="WordPress.Security.ValidatedSanitizedInput">
+        <properties>
+            <property name="customSanitizingFunctions" type="array">
+                <element value="prefix_sanitize_url"/>
+                <element value="prefix_sanitize_postal_code"/>
+            </property>
+            <property name="customUnslashingSanitizingFunctions" type="array">
+                <element value="prefix_sanitize_unslash_url"/>
+            </property>
+        </properties>
+    </rule>
+    <rule ref="WordPress.Security.NonceVerification">
+        <properties>
+            <property name="customSanitizingFunctions" type="array">
+                <element value="prefix_sanitize_url"/>
+                <element value="prefix_sanitize_postal_code"/>
+            </property>
+            <property name="customUnslashingSanitizingFunctions" type="array">
+                <element value="prefix_sanitize_unslash_url"/>
+            </property>
+        </properties>
+    </rule>
+    <!--Internationalization: setting your text domain-->
+    <!--https://github.com/WordPress/WordPress-Coding-Standards/wiki/Customizable-sniff-properties#properties-strongly-recommended-to-be-set-->
+    <rule ref="WordPress.WP.I18n">
+        <properties>
+            <property name="text_domain" type="array">
+                <element value="the-plugin-name-text-domain"/>
+                <element value="library-textdomain"/>
+            </property>
+        </properties>
+    </rule>
+    <!--Naming Conventions: prefix everything in the global namespace-->
+    <!--https://github.com/WordPress/WordPress-Coding-Standards/wiki/Customizable-sniff-properties#properties-strongly-recommended-to-be-set-->
+    <rule ref="WordPress.NamingConventions.PrefixAllGlobals">
+        <properties>
+            <property name="prefixes" type="array">
+                <element value="ThePluginName"/>
+                <element value="_THE_PLUGIN_NAME"/>
+                <element value="the_plugin_name"/>
+            </property>
+        </properties>
+    </rule>
+    <!-- Allow namespaced hook names in dot notation. -->
+    <!--https://github.com/WordPress/WordPress-Coding-Standards/wiki/Customizable-sniff-properties#custom-word-delimiters-in-hook-names-->
+    <rule ref="WordPress.NamingConventions.ValidHookName">
+        <properties>
+            <property name="additionalWordDelimiters" value="."/>
+        </properties>
+    </rule>
+    <!-- https://github.com/Automattic/phpcs-neutron-ruleset/ -->
+    <!-- These are a set of modern (PHP >7) linting guidelines for WordPress development. -->
+    <rule ref="NeutronRuleset">
+        <exclude name="NeutronStandard.Globals.DisallowGlobalFunctions.GlobalFunctions"/>
+    </rule>
+    <!-- https://github.com/squizlabs/PHP_CodeSniffer/issues/1578 -->
+    <rule ref="PEAR.Functions.FunctionCallSignature"/>
+    <rule ref="PEAR.Functions.FunctionCallSignature.ContentAfterOpenBracket">
+        <severity>0</severity>
+    </rule>
+    <rule ref="PEAR.Functions.FunctionCallSignature.CloseBracketLine">
+        <severity>0</severity>
+    </rule>
+</ruleset>
