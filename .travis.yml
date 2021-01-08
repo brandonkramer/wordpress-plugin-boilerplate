@@ -5,9 +5,10 @@ branches:
 php:
   - 7.1
   - 7.2
-  - 7.3
-  - 7.4
 
 env:
   - WP_VERSION=latest
   - WP_VERSION=5.5
+
+install: composer install
+script: vendor/bin/codecept run wpunit
