@@ -1,8 +1,8 @@
 <?php
 /**
- * The Plugin Name Plugin
+ * {{The Plugin Name}}
  *
- * @package   ThePluginName
+ * @package   {{the-plugin-name}}
  * @author    {{author_name}} <{{author_email}}>
  * @copyright {{author_copyright}}
  * @license   {{author_license}}
@@ -34,8 +34,8 @@ final class Bootstrap extends Base {
 	use Requester;
 
 	/**
-	 * Used to debug the Bootstrap class, this will print a visualised array if set true
-	 * to see which classes are loaded and the elapsed execution time
+	 * Used to debug the Bootstrap class; this will print a visualised array
+	 * of the classes that are loaded with the total execution time if set true
 	 *
 	 * @var array
 	 */
@@ -89,12 +89,12 @@ final class Bootstrap extends Base {
 		// ignore for readable array values one a single line
 		$this->loadClasses( [
 			[ 'init' => 'Integrations' ],
-			[ 'init' => 'App\\Rest', 'on_request' => 'rest' ],
-			[ 'init' => 'App\\Cli', 'on_request' => 'cli' ],
-			[ 'init' => 'App\\Cron', 'on_request' => 'cron' ],
 			[ 'init' => 'App\\General' ],
 			[ 'init' => 'App\\Frontend', 'on_request' => 'frontend' ],
 			[ 'init' => 'App\\Backend', 'on_request' => 'backend' ],
+			[ 'init' => 'App\\Rest', 'on_request' => 'rest' ],
+			[ 'init' => 'App\\Cli', 'on_request' => 'cli' ],
+			[ 'init' => 'App\\Cron', 'on_request' => 'cron' ],
 			[ 'init' => 'Compatibility' ],
 		] );
 		// phpcs:enable
@@ -226,7 +226,7 @@ final class Bootstrap extends Base {
 		// be a bit slower. The plugin needs to be optimized before production-release
 		// Errors::writeLog(
 		//    [
-		//        'title'   => __( 'The plugin classes are not being loaded by Composer\'s Autoloader' ),
+		//        'title'   => __( '{{The Plugin Name}} classes are not being loaded by Composer\'s Autoloader' ),
 		//        'message' => __( 'Try a `composer dumpautoload -o` to optimize the autoloader that will improve the performance on autoloading itself.' )
 		//    ]
 		//);

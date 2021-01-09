@@ -1,8 +1,8 @@
 <?php
 /**
- * The Plugin Name Plugin
+ * {{The Plugin Name}}
  *
- * @package   ThePluginName
+ * @package   {{the-plugin-name}}
  * @author    {{author_name}} <{{author_email}}>
  * @copyright {{author_copyright}}
  * @license   {{author_license}}

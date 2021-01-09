@@ -1,17 +1,17 @@
 <?php
 /**
- * The Plugin Name Plugin
+ * {{The Plugin Name}}
  *
- * @package   ThePluginName
+ * @package   {{the-plugin-name}}
  * @author    {{author_name}} <{{author_email}}>
  * @copyright {{author_copyright}}
  * @license   {{author_license}}
  * @link      {{author_url}}
  *
- * Plugin Name:     The Plugin Name
+ * Plugin Name:     {{The Plugin Name}}
  * Plugin URI:      {{plugin_url}}
  * Description:     {{plugin_description}}
- * Version:         0.0.1
+ * Version:         1.0.0
  * Author:          {{author_name}}
  * Author URI:      {{author_url}}
  * Text Domain:     the-plugin-name-text-domain
@@ -53,7 +53,7 @@ register_uninstall_hook( __FILE__, [ 'ThePluginName\Config\Setup', 'uninstall' ]
  * @since 1.0.0
  */
 if ( ! class_exists( '\ThePluginName\Bootstrap' ) ) {
-	wp_die( __( 'The Plugin Name is unable to find the Bootstrap class.', 'the-plugin-name-text-domain' ) );
+	wp_die( __( '{{The Plugin Name}} is unable to find the Bootstrap class.', 'the-plugin-name-text-domain' ) );
 }
 add_action(
 	'plugins_loaded',
@@ -64,7 +64,7 @@ add_action(
 		try {
 			new \ThePluginName\Bootstrap( $the_plugin_name_autoloader );
 		} catch ( Exception $e ) {
-			wp_die( __( 'The Plugin Name is unable to run the Bootstrap class.', 'the-plugin-name-text-domain' ) );
+			wp_die( __( '{{The Plugin Name}} is unable to run the Bootstrap class.', 'the-plugin-name-text-domain' ) );
 		}
 	}
 );
