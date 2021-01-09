@@ -2,21 +2,21 @@
 /**
  * The Plugin Name Plugin
  *
- * @package   Plugin_Name
+ * @package   ThePluginName
  * @author    {{author_name}} <{{author_email}}>
  * @copyright {{author_copyright}}
  * @license   {{author_license}}
  * @link      {{author_url}}
  *
  * Plugin Name:     The Plugin Name
- * Plugin URI:      https://the-plugin.com
- * Description:     The Plugin Description
+ * Plugin URI:      {{plugin_url}}
+ * Description:     {{plugin_description}}
  * Version:         0.0.1
- * Author:          The Plugin Author
- * Author URI:      https://the-plugin-author.com
+ * Author:          {{author_name}}
+ * Author URI:      {{author_url}}
  * Text Domain:     the-plugin-name-text-domain
  * Domain Path:     /languages
- * Requires PHP:    7.0
+ * Requires PHP:    7.1
  * Requires WP:     5.5.0
  * Namespace:       ThePluginName
  */
@@ -35,8 +35,8 @@ const _THE_PLUGIN_NAME_PLUGIN_FILE = __FILE__;
  *
  * @since 1.0.0
  */
-$_the_plugin_name_autoloader = plugin_dir_path( _THE_PLUGIN_NAME_PLUGIN_FILE ) . '/vendor/autoload.php';
-require $_the_plugin_name_autoloader;
+$the_plugin_name_autoloader = plugin_dir_path( _THE_PLUGIN_NAME_PLUGIN_FILE ) . '/vendor/autoload.php';
+require $the_plugin_name_autoloader;
 
 /**
  * Setup hooks (activation, deactivation, uninstall)
@@ -57,12 +57,12 @@ if ( ! class_exists( '\ThePluginName\Bootstrap' ) ) {
 }
 add_action(
 	'plugins_loaded',
-	static function () use ( $_the_plugin_name_autoloader ) {
+	static function () use ( $the_plugin_name_autoloader ) {
 		/**
 		 * @see \ThePluginName\Bootstrap
 		 */
 		try {
-			new \ThePluginName\Bootstrap( $_the_plugin_name_autoloader );
+			new \ThePluginName\Bootstrap( $the_plugin_name_autoloader );
 		} catch ( Exception $e ) {
 			wp_die( __( 'The Plugin Name is unable to run the Bootstrap class.', 'the-plugin-name-text-domain' ) );
 		}
@@ -75,6 +75,6 @@ add_action(
  * @return \ThePluginName\Common\Functions
  * @since 1.0.0
  */
-function the_plugin_name_function(): \ThePluginName\Common\Functions {
+function the_plugin_name(): \ThePluginName\Common\Functions {
 	return new \ThePluginName\Common\Functions();
 }

@@ -32,6 +32,8 @@
   "require-dev": {
     "dealerdirect/phpcodesniffer-composer-installer": "^0.7.1",
     "wp-coding-standards/wpcs": "*",
+    "automattic/phpcs-neutron-ruleset": "^3.3",
+    "phpcompatibility/phpcompatibility-wp": "^2.1",
     "lucatume/function-mocker": "~1.0",
     "lucatume/wp-browser": "^3.0",
     "codeception/lib-innerbrowser": "^1.0",
@@ -43,19 +45,15 @@
     "codeception/module-cli": "^1.0",
     "codeception/module-rest": "^1.2",
     "codeception/util-universalframework": "^1.0",
-    "codeception/codeception-progress-reporter": "^4.0.2",
-    "phpcompatibility/phpcompatibility-wp": "^2.1",
-    "automattic/phpcs-neutron-ruleset": "^3.3"
+    "codeception/codeception-progress-reporter": "^4.0.2"
   },
   "scripts": {
     "codecept": "vendor/bin/codecept",
-    "run:unit": "vendor/bin/codecept run unit",
     "run:wpunit": "vendor/bin/codecept run wpunit",
+    "run:functional": "vendor/bin/codecept run functional",
     "run:acceptance": "vendor/bin/codecept run acceptance",
-    "coverage:wpunit": "vendor/bin/codecept run wpunit --coverage --coverage-xml --coverage-html",
-    "coverage:unit": "vendor/bin/codecept run wpunit --coverage --coverage-xml --coverage-html",
     "generate:wpunit": "vendor/bin/codecept generate:wpunit wpunit",
-    "generate:unit": "vendor/bin/codecept generate:test unit",
+    "generate:functional": "vendor/bin/codecept generate:cept functional",
     "generate:acceptance": "vendor/bin/codecept generate:test acceptance",
     "phpcs": "./vendor/bin/phpcs"
   }

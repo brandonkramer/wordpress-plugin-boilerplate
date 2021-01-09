@@ -2,7 +2,7 @@
 /**
  * The Plugin Name Plugin
  *
- * @package   Plugin_Name
+ * @package   ThePluginName
  * @author    {{author_name}} <{{author_email}}>
  * @copyright {{author_copyright}}
  * @license   {{author_license}}
@@ -43,7 +43,7 @@ final class Plugin {
 				plugin_dir_path( _THE_PLUGIN_NAME_PLUGIN_FILE )  // phpcs:disable ImportDetection.Imports.RequireImports.Symbol -- this constant is global
 			),
 			'plugin_template_folder' => 'templates',
-			'ext_template_folder'    => 'plugin-name-templates',
+			'ext_template_folder'    => 'the-plugin-name-templates',
 			/**
 			 * Add extra data here
 			 */

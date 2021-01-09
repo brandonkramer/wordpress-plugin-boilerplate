@@ -2,7 +2,7 @@
 /**
  * The Plugin Name Plugin
  *
- * @package   Plugin_Name
+ * @package   ThePluginName
  * @author    {{author_name}} <{{author_email}}>
  * @copyright {{author_copyright}}
  * @license   {{author_license}}
@@ -81,7 +81,6 @@ final class Bootstrap extends Base {
 	 */
 	public function __construct( $composer ) {
 		parent::__construct();
-
 		$this->startExecutionTimer();
 		$this->checkRequirements();
 		$this->setLocale();

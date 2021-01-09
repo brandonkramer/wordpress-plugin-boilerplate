@@ -2,7 +2,7 @@
 /**
  * The Plugin Name Plugin
  *
- * @package   Plugin_Name
+ * @package   ThePluginName
  * @author    {{author_name}} <{{author_email}}>
  * @copyright {{author_copyright}}
  * @license   {{author_license}}
@@ -42,13 +42,13 @@ final class Requirements extends Base {
 			],
 			'wp'             => $this->plugin->requiredWp(),
 			'plugins'        => [
-				[
-					/**
-					 *  'file'    => 'hello-dolly/hello.php',
-					 *  'name'    => 'Hello Dolly',
-					 *  'version' => '1.5'
-					 */
-				],
+				/**
+				 * [
+				 *  'file'    => 'hello-dolly/hello.php',
+				 *  'name'    => 'Hello Dolly',
+				 *  'version' => '1.5'
+				 * ],
+				 */
 			],
 		] );
 	}
