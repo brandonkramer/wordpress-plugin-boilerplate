@@ -96,8 +96,7 @@ final class Bootstrap extends Base {
 			[ 'init' => 'App\\Cli', 'on_request' => 'cli' ],
 			[ 'init' => 'App\\Cron', 'on_request' => 'cron' ],
 			[ 'init' => 'Compatibility' ],
-		] );
-		// phpcs:enable
+		] ); // phpcs:enable
 		$this->debugger();
 	}
 

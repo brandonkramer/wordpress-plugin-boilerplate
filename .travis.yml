@@ -32,7 +32,6 @@ matrix:
 
 install:
   - phpenv config-rm xdebug.ini || echo 'No xdebug config.'
-  # Install PHP CodeSniffer.
   - composer install --no-interaction --no-suggest
   - phpenv rehash
 

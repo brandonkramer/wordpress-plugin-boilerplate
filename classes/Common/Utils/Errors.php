@@ -94,8 +94,7 @@ class Errors {
 			);
 			$source = $source ? '<small>' .
 				sprintf( /* translators: %s: file path */
-					__( 'Error source: %s', 'the-plugin-name-text-domain' ),
-					$source
+					__( 'Error source: %s', 'the-plugin-name-text-domain' ), $source
 				) . '</small> - ' : '';
 			$footer = $source . '<a href="' . $plugin['uri'] . '"><small>' . $plugin['uri'] . '</small></a>';
 			$error = "<strong><h3>{$title}</h3>{$subtitle}</strong><p>{$message}</p><hr><p>{$footer}</p>";

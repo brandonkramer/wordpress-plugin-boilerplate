@@ -11,7 +11,7 @@
  * Plugin Name:     {{The Plugin Name}}
  * Plugin URI:      {{plugin_url}}
  * Description:     {{plugin_description}}
- * Version:         1.0.0
+ * Version:         {{version}}
  * Author:          {{author_name}}
  * Author URI:      {{author_url}}
  * Text Domain:     the-plugin-name-text-domain
