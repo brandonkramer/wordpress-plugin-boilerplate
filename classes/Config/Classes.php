@@ -14,7 +14,7 @@ declare( strict_types = 1 );
 namespace ThePluginName\Config;
 
 /**
- * This array is being used in ../Boostrap.php to initialize the classes
+ * This array is being used in ../Boostrap.php to instantiate the classes
  *
  * @package ThePluginName\Config
  * @since 1.0.0
