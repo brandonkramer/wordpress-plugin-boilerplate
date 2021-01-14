@@ -1,0 +1,124 @@
+# Copyright (C) 2021 the-plugin-name
+# This file is distributed under the same license as the the-plugin-name package.
+msgid ""
+msgstr ""
+"Project-Id-Version: {{the-plugin-name}}\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language-Team: {{author_name}} <{{author_email}}>\n"
+"Last-Translator: {{author_name}} <{{author_email}}>\n"
+"Report-Msgid-Bugs-To: {{author_url}}\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. translators: %s: php class namespace
+#: ../classes/Bootstrap.php:182
+msgid "Could not load class \"%s\". The \"init\" method is probably missing or try a `composer dumpautoload -o` to refresh the autoloader."
+msgstr ""
+
+#: ../classes/Bootstrap.php:186
+msgid "Plugin initialize failed"
+msgstr ""
+
+#: ../classes/App/Backend/Customizer.php:71, ../classes/App/Backend/Customizer.php:113
+msgid "Related posts"
+msgstr ""
+
+#: ../classes/App/Backend/Customizer.php:88
+msgid "Number of posts to show"
+msgstr ""
+
+#: ../classes/App/Backend/Notices.php:52
+msgid "This is an example of a notice that appears on the settings page."
+msgstr ""
+
+#. translators: %s: post type singular title
+#. translators: %s: post type singular title
+#: ../classes/App/General/PostTypes.php:66, ../classes/App/General/PostTypes.php:68
+msgid "New %s"
+msgstr ""
+
+#. translators: %s: post type singular title
+#: ../classes/App/General/PostTypes.php:67
+msgid "Add New %s"
+msgstr ""
+
+#. translators: %s: post type singular title
+#: ../classes/App/General/PostTypes.php:69
+msgid "Edit %s"
+msgstr ""
+
+#. translators: %s: post type singular title
+#: ../classes/App/General/PostTypes.php:70
+msgid "View %s"
+msgstr ""
+
+#. translators: %s: post type title
+#: ../classes/App/General/PostTypes.php:71
+msgid "All %s"
+msgstr ""
+
+#. translators: %s: post type title
+#: ../classes/App/General/PostTypes.php:72
+msgid "Search %s"
+msgstr ""
+
+#: ../classes/App/Rest/Example.php:65
+msgid "Text field demo of Post type"
+msgstr ""
+
+#: ../classes/App/Rest/Example.php:128
+msgid "Failed to update post views."
+msgstr ""
+
+#. translators: %s: request function
+#: ../classes/Common/Traits/Requester.php:53
+msgid "Unknown request type: %s"
+msgstr ""
+
+#: ../classes/Common/Traits/Requester.php:56
+msgid "Classes are not being correctly requested"
+msgstr ""
+
+#: ../classes/Common/Utils/Errors.php:50
+msgid "&rsaquo; Fatal Error"
+msgstr ""
+
+#. translators: %s: file path
+#. translators: %s: file path
+#: ../classes/Common/Utils/Errors.php:61, ../classes/Common/Utils/Errors.php:97
+msgid "Error source: %s"
+msgstr ""
+
+#: ../classes/Common/Utils/Errors.php:86
+msgid "&rsaquo; Plugin Disabled"
+msgstr ""
+
+#: ../classes/Integrations/Widget/HTML_Widget.php:68
+msgid "Displays HTML code with syntax highlighting."
+msgstr ""
+
+#: ../classes/Integrations/Widget/HTML_Widget.php:72
+msgid "HTML Test Widget"
+msgstr ""
+
+#: ../classes/Integrations/Widget/HTML_Widget.php:129
+msgid "Content:"
+msgstr ""
+
+#: ../templates/test-template.php:18
+msgid "This is being loaded inside \"wp_footer\" from the templates class"
+msgstr ""
+
+#: ../the-plugin-name.php:56
+msgid "{{The Plugin Name}} is unable to find the Bootstrap class."
+msgstr ""
+
+#: ../the-plugin-name.php:67
+msgid "{{The Plugin Name}} is unable to run the Bootstrap class."
+msgstr ""
