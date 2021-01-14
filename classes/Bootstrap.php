@@ -40,7 +40,7 @@ final class Bootstrap extends Base {
 	 *
 	 * @var array
 	 */
-	public $bootstrap = [ 'debug' => true ];
+	public $bootstrap = [ 'debug' => false ];
 
 	/**
 	 * List of class to init
