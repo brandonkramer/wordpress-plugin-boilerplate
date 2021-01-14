@@ -3,10 +3,11 @@
 
 # Node
 node_modules
+npm-debug.log
+package-lock.json
 
 # Composer
 vendor
-package-lock.json
 composer.lock
 
 # PHP

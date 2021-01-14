@@ -35,8 +35,7 @@ const _THE_PLUGIN_NAME_PLUGIN_FILE = __FILE__;
  *
  * @since 1.0.0
  */
-$the_plugin_name_autoloader = plugin_dir_path( _THE_PLUGIN_NAME_PLUGIN_FILE ) . '/vendor/autoload.php';
-require $the_plugin_name_autoloader;
+$the_plugin_name_autoloader = require plugin_dir_path( _THE_PLUGIN_NAME_PLUGIN_FILE ) . 'vendor/autoload.php';
 
 /**
  * Setup hooks (activation, deactivation, uninstall)

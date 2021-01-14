@@ -1,33 +1,30 @@
 {
   "name": "wpstrap/wordpress-plugin-boilerplate",
   "description": "Wordpress Plugin Boilerplate",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "minimum-stability": "stable",
   "prefer-stable": true,
   "type": "wordpress-plugin",
   "license": "MIT",
   "homepage": "https://wp-strap.com",
-  "keywords": [
-    "wordpress",
-    "plugin",
-    "boilerplate",
-    "framework"
-  ],
-  "authors": [
-    {
-      "name": "WP-Strap",
-      "email": "hello@wp-strap.com",
-      "homepage": "https://wp-strap.com"
-    }
-  ],
-  "require": {
-    "php": ">=7.1",
-    "micropackage/requirements": "^1.0"
-  },
   "autoload": {
     "psr-4": {
       "ThePluginName\\": "classes/"
     }
+  },
+  "scripts": {
+    "codecept": "vendor/bin/codecept",
+    "run:wpunit": "vendor/bin/codecept run wpunit",
+    "run:functional": "vendor/bin/codecept run functional",
+    "run:acceptance": "vendor/bin/codecept run acceptance",
+    "generate:wpunit": "vendor/bin/codecept generate:wpunit wpunit",
+    "generate:functional": "vendor/bin/codecept generate:cept functional",
+    "generate:acceptance": "vendor/bin/codecept generate:test acceptance",
+    "phpcs": "./vendor/bin/phpcs"
+  },
+  "require": {
+    "php": ">=7.1",
+    "micropackage/requirements": "^1.0"
   },
   "require-dev": {
     "dealerdirect/phpcodesniffer-composer-installer": "^0.7.1",
@@ -47,14 +44,17 @@
     "codeception/util-universalframework": "^1.0",
     "codeception/codeception-progress-reporter": "^4.0.2"
   },
-  "scripts": {
-    "codecept": "vendor/bin/codecept",
-    "run:wpunit": "vendor/bin/codecept run wpunit",
-    "run:functional": "vendor/bin/codecept run functional",
-    "run:acceptance": "vendor/bin/codecept run acceptance",
-    "generate:wpunit": "vendor/bin/codecept generate:wpunit wpunit",
-    "generate:functional": "vendor/bin/codecept generate:cept functional",
-    "generate:acceptance": "vendor/bin/codecept generate:test acceptance",
-    "phpcs": "./vendor/bin/phpcs"
-  }
+  "keywords": [
+    "wordpress",
+    "plugin",
+    "boilerplate",
+    "framework"
+  ],
+  "authors": [
+    {
+      "name": "WP-Strap",
+      "email": "hello@wp-strap.com",
+      "homepage": "https://wp-strap.com"
+    }
+  ]
 }
