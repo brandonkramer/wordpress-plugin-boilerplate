@@ -32,6 +32,11 @@
 npx wp-strap plugin
 ```
 
+You can also use the npx script with predefined answers to get a quicker start
+```bash
+npx wp-strap plugin "projectName:Your plugin name" "description:Test the plugin" "pluginVersion:1.0.0" license:MIT "author:The Dev Company" authorEmail:hello@the-dev-company.com url:the-dev-company.com webpack:Y codesniffer:Y codeception:Y travisCi:Y
+```
+
 It will take a couple of minutes to install after your terminal input; it will clone the git repo's, search and replace
 all the plugin data, do a `composer install`, and when it's combined with the Webpack workflow then it wil also do
 a `npm install `
