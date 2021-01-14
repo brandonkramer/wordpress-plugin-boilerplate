@@ -16,6 +16,7 @@ namespace ThePluginName;
 use ThePluginName\Common\Abstracts\Base;
 use ThePluginName\Common\Traits\Requester;
 use ThePluginName\Common\Utils\Errors;
+use ThePluginName\Config\Classes;
 use ThePluginName\Config\I18n;
 use ThePluginName\Config\Requirements;
 
@@ -39,7 +40,7 @@ final class Bootstrap extends Base {
 	 *
 	 * @var array
 	 */
-	public $bootstrap = [ 'debug' => false ];
+	public $bootstrap = [ 'debug' => true ];
 
 	/**
 	 * List of class to init
@@ -85,18 +86,7 @@ final class Bootstrap extends Base {
 		$this->checkRequirements();
 		$this->setLocale();
 		$this->getClassLoader( $composer );
-		// phpcs:disable
-		// ignore for readable array values one a single line
-		$this->loadClasses( [
-			[ 'init' => 'Integrations' ],
-			[ 'init' => 'App\\General' ],
-			[ 'init' => 'App\\Frontend', 'on_request' => 'frontend' ],
-			[ 'init' => 'App\\Backend', 'on_request' => 'backend' ],
-			[ 'init' => 'App\\Rest', 'on_request' => 'rest' ],
-			[ 'init' => 'App\\Cli', 'on_request' => 'cli' ],
-			[ 'init' => 'App\\Cron', 'on_request' => 'cron' ],
-			[ 'init' => 'Compatibility' ],
-		] ); // phpcs:enable
+		$this->loadClasses( Classes::get() );
 		$this->debugger();
 	}
 

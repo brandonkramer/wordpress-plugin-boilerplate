@@ -14,18 +14,18 @@ declare( strict_types = 1 );
 namespace ThePluginName\Config;
 
 /**
- * Internationalization and localization definitions
+ * This array is being used in ../Boostrap.php to initialize the classes
  *
  * @package ThePluginName\Config
  * @since 1.0.0
  */
 final class Classes {
+
 	/**
-	 * Load the plugin text domain for translation
-	 *
-	 * @since 1.0.0
+	 * Init the classes inside these folders based on type of request.
+	 * @see Requester for all the type of requests or to add your own
 	 */
-	public function init(): array {
+	public static function get(): array {
 		// phpcs:disable
 		// ignore for readable array values one a single line
 		return [
