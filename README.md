@@ -9,7 +9,6 @@
             This includes common and modern tools to facilitate plugin development and testing with an organized, object-oriented structure and kick-start a build-workflow for your WordPress plugins. 
         </td>
     </tr>
-__
 </table>
 
 * The Boilerplate is based on the [Plugin API](https://codex.wordpress.org/Plugin_API)
