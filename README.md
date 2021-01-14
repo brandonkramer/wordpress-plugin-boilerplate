@@ -120,12 +120,12 @@ the class. The idea of this organisation is to be more conscious of structuring 
 ### PHPCodeSniffer
 
 - Run PHPCodeSniffer with  `composer phpcs` to validate your plugin code
-- Configure PHPCodeSniffer in `phpcs.xm.dist` 
+- Configure PHPCodeSniffer in `phpcs.xm.dist`
 - Documentation can be found here:
-    - https://github.com/WordPress/WordPress-Coding-Standards
-    - https://github.com/Dealerdirect/phpcodesniffer-composer-installer
-    - https://github.com/Automattic/phpcs-neutron-ruleset
-    - https://github.com/PHPCompatibility/PHPCompatibilityWP
+  - https://github.com/WordPress/WordPress-Coding-Standards
+  - https://github.com/Dealerdirect/phpcodesniffer-composer-installer
+  - https://github.com/Automattic/phpcs-neutron-ruleset
+  - https://github.com/PHPCompatibility/PHPCompatibilityWP
 
 ### Plugin requirements
 - Set your plugin requirements in `classes/Config/Requirements.php` using a simple array
@@ -133,8 +133,12 @@ the class. The idea of this organisation is to be more conscious of structuring 
 - If the plugin doesn't pass the test then it will be disabled automatically in WordPress and show a notification in the back-end
 - Documentation can be found here: https://github.com/micropackage/requirements
 
+### TravisCI
+- Configure TravisCI in `.travis.yml`
+- Currently it only validates the plugin code with PHPCodeSniffer during automated testing when being deployed
+- A great article can be found here: https://stevegrunwell.com/blog/travis-ci-wordpress-plugins/
 
-## Frontend tooling
+## Frontend/Webpack tooling
 When using webpack then you can use the following for the front-end build process. ([Or read more here](https://github.com/wp-strap/wordpress-webpack-workflow))
 
 ### Developing Locally
