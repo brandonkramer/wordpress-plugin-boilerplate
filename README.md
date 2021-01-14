@@ -6,7 +6,7 @@
     <tr>
         <td align='left' width='100%' colspan='2'>
             <strong>Plugin boilerplate with modern tools to kickstart your WordPress project</strong><br />
-            This includes common and modern tools to facilitate plugin development and testing with an organized, object-oriented structure for testable WordPress plugin development and kick-start a build-workflow for your WordPress plugins. 
+            This includes common and modern tools to facilitate plugin development and testing with an organized, object-oriented structure and kick-start a build-workflow for your WordPress plugins. 
         </td>
     </tr>
 
