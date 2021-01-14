@@ -1,10 +1,20 @@
-# WordPress Plugin Boilerplate
+# WordPress Plugin Boilerplate 
 
 [![Build Status](https://api.travis-ci.org/wp-strap/wordpress-plugin-boilerplate.svg?branch=master&status=passed)](https://travis-ci.org/github/wp-strap/wordpress-plugin-boilerplate)
 ![PHP 7.1+](https://img.shields.io/badge/PHP-7.1%2B-brightgreen)
+<table width='100%' align="center">
+    <tr>
+        <td align='left' width='100%' colspan='2'>
+            <strong>Plugin boilerplate with modern tools to kickstart your WordPress project</strong><br />
+            This includes common and modern tools to facilitate plugin development and testing with an organized, object-oriented structure for testable WordPress plugin development and kick-start a build-workflow for your WordPress plugins. 
+        </td>
+    </tr>
 
-* An organized, object-oriented, and lightweight boilerplate for testable WordPress plugin development
-* The [Plugin API](https://codex.wordpress.org/Plugin_API), [Coding Standards](https://codex.wordpress.org/WordPress_Coding_Standards), and [Documentation Standards](https://make.wordpress.org/core/handbook/best-practices/inline-documentation-standards/php/) has been taken in regards
+</table>
+
+* The Boilerplate is  based on the [Plugin API](https://codex.wordpress.org/Plugin_API), [Coding Standards](https://codex.wordpress.org/WordPress_Coding_Standards), and [Documentation Standards](https://make.wordpress.org/core/handbook/best-practices/inline-documentation-standards/php/).
+* Includes Composer, Requirements micropackage to test environment requirements for your plugin, Codeception to do unit/acceptance testing, PHPCodeSniffer with WordPress Coding Standards to validate your code, TravisCI configuration for automatic testing & continuous integration, object oriented code structure, an automatic class loader that automatically instantiate classes based on type of request and more.
+* This can be combined with the [Webpack 5 workflow](https://github.com/wp-strap/wordpress-webpack-workflow) for front-end development using the npx script that includes the Webpack v5 bundler, BabelJS v7, BrowserSync v2, PostCSS v8, PurgeCSS v3, Autoprefixer, Eslint, Stylelint, SCSS processor, WPPot, and more.
 
 ## Installation
 Install directly into the plugins folder of a WordPress installation and then rename from `wordpress-plugin-boilerplate` to whatever you want your plugin to be named:
