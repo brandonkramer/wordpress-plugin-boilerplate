@@ -13,16 +13,18 @@
 </table>
 
 * The Boilerplate is  based on the [Plugin API](https://codex.wordpress.org/Plugin_API), [Coding Standards](https://codex.wordpress.org/WordPress_Coding_Standards), and [Documentation Standards](https://make.wordpress.org/core/handbook/best-practices/inline-documentation-standards/php/).
-* Includes Composer, Requirements micropackage to test environment requirements for your plugin, Codeception to do unit/acceptance testing, PHPCodeSniffer with WordPress Coding Standards to validate your code, TravisCI configuration for automatic testing & continuous integration, object oriented code structure, an automatic class loader that automatically instantiate classes based on type of request and more.
+* Includes Composer, Requirements micropackage to test environment requirements for your plugin, Codeception to do unit/acceptance testing, PHPCodeSniffer with WordPress Coding Standards to validate your code, TravisCI configuration for automatic testing & continuous integration, object oriented code structure, an automatic class loader that automatically instantiate classes based on type of request.
 * This can be combined with the [Webpack 5 workflow](https://github.com/wp-strap/wordpress-webpack-workflow) for front-end development using the npx script that includes the Webpack v5 bundler, BabelJS v7, BrowserSync v2, PostCSS v8, PurgeCSS v3, Autoprefixer, Eslint, Stylelint, SCSS processor, WPPot, and more.
 
-## Installation
-Install directly into the plugins folder of a WordPress installation and then rename from `wordpress-plugin-boilerplate` to whatever you want your plugin to be named:
+## Quickstart
+![Image](https://media2.giphy.com/media/xnkKvAdDteo70lliWF/giphy.gif)
 
-    composer create-project wpstrap/wordpress-plugin-boilerplate
-
-Currently a lot of Find and Replace is needed.
-
+Open up a terminal and use the following npx command
+```bash
+# Should be run inside your plugins folder (wp-content/plugins).
+npx wp-strap plugin
+```
+It will take a couple of minutes to install after your terminal input; it will clone the git repo's, search and replace all the plugin data, do a `composer install`, and when it's combined with the Webpack workflow then it wil also do a `npm install `
 ### Plugin Structure
 
 You can add your own new class files by naming them correctly and putting the files in the most appropriate location, see other files for examples. Composer's Autoloader and the Bootstrap class will auto include your file and instantiate the class. The idea of this organisation is to be more conscious of structuring your code.
