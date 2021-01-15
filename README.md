@@ -27,8 +27,8 @@
 
 ![Image](https://media2.giphy.com/media/xnkKvAdDteo70lliWF/giphy.gif)
 
+Should be run inside your plugins folder (wp-content/plugins).
 ```bash
-# Should be run inside your plugins folder (wp-content/plugins).
 npx wp-strap plugin
 ```
 
