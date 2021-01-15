@@ -42,6 +42,109 @@ all the plugin data, do a `composer install`, and when it's combined with the We
 a `npm install `
 
 <a href="#what-to-configure">Read more about the configuration & build scripts</a>
+## Features & benefits
+
+### Backend
+
+**Composer** (Namespaces + PSR4 autoloader + Dependency manager)
+>- [**Namespace**](https://www.php.net/manual/en/language.namespaces.rationale.php) support to group all of your code under a custom name. That way, your classes, functions, and so on don’t clash with other people’s code running on the site at the same time
+>- [**PSR-4 Autoloader**](https://www.php-fig.org/psr/psr-4/) to autoload files and directories in connection with namespaces
+>- Includes a [**dependency manager**](https://getcomposer.org/doc/00-intro.md#dependency-management) to easily load in 3rd party libraries from [**packagist**](https://packagist.org/), locked onto specific versions
+
+**Object-oriented & classes autoloader**
+>- Includes a [**OOP-style**](https://developer.wordpress.org/plugins/plugin-basics/best-practices/#object-oriented-programming-method) structure for building a high-quality PHP development
+>- Classes are being [auto-instantiated](https://github.com/wp-strap/wordpress-plugin-boilerplate/blob/master/classes/Bootstrap.php#L79) by extending the PSR-4 Autoloader from Composer and [based on type of request and folder structure](https://github.com/wp-strap/wordpress-plugin-boilerplate/blob/master/classes/Config/Classes.php#L28). So you can add your own new class files by naming them correctly and putting the files in the most appropriate location and work in it straight away without having to include them or instantiate them manually. Composer's Autoloader and the Bootstrap class will auto include your file and instantiate the class.
+>- The structure follows the the [Plugin API](https://codex.wordpress.org/Plugin_API)
+   , [Coding Standards](https://codex.wordpress.org/WordPress_Coding_Standards),
+   and [Documentation Standards](https://make.wordpress.org/core/handbook/best-practices/inline-documentation-standards/php/)
+
+**PHPCodeSniffer + WordPress Coding Standards + Automattic's phpcs-neutron-ruleset** 
+>- [**PHP CodeSniffer**](https://github.com/squizlabs/PHP_CodeSniffer) is built in with predefined configuration for proper linting. PHP_CodeSniffer is an essential development tool that ensures your code remains clean and consistent.
+>- PHPCS is extended with the [**WordPress Coding Standards**](https://github.com/WordPress/WordPress-Coding-Standards) & [**PHPCompatibilityWP**](https://github.com/PHPCompatibility/PHPCompatibilityWP) for PHP_CodeSniffer which is a collection of PHP_CodeSniffer rules (sniffs) to validate code developed for WordPress. It ensures code quality and adherence to coding conventions, especially the official WordPress Coding Standards.
+>- PHPCS is also extented with [**Automattic's phpcs-neutron-ruleset**](https://github.com/Automattic/phpcs-neutron-ruleset) which is a set of modern (PHP >7) linting guidelines for WordPress development. 
+
+**Codeception (unit/acceptance testing)**
+>- [**Codeception**](https://codeception.com/for/wordpress) is built in which combines all testing levels (acceptance, functional, integration, unit) with  WordPress defined functions, constants, classes and methods in any test.
+>- With a flexible set of included modules, tests are easy to write, easy to use, and easy to maintain.
+
+
+**Plugin requirements**
+>- [**Requirements micropackage**](https://github.com/micropackage/requirements) is built in that allows you to test environment requirements to run your plugin.
+>- It can test: PHP version, PHP Extensions, WordPress version, Active plugins, Current theme, DocHooks support
+>- Easily to configure using a [**simple array**](https://github.com/wp-strap/wordpress-plugin-boilerplate/blob/master/classes/Config/Requirements.php#L35)
+>- If the plugin doesn't pass the test then it will disable the plugin automatically for the user in WordPress and show a notification in the back-end
+
+
+**TravisCI**
+>- Ready to use [**TravisCI**](https://travis-ci.org/) configuration for automatic testing & continuous integration which currently only validates the plugin code with PHPCodeSniffer during automated testing when being deployed, but can also be extended to test unit/acceptance cases from Codeception
+>- When a Continuous Integration pipeline is in place, you can make it a prerequisite for pull requests to be merged. Automating the high-level testing can save you lots of time.
+
+**Prettified WP_DEBUG Errors & Classes debug array**
+>- Includes a function called `Errors::wpDie` to show a [prettified WP_DEBUG error](https://i.imgur.com/PFoIwxD.png) with the plugin information and file source
+>- Includes a function called `Errors::pluginDie` to kill the plugin and show a [prettified admin notification](https://i.imgur.com/WGE9sBv.png) with the plugin information and file source
+>- Includes a [function if set true](https://github.com/wp-strap/wordpress-plugin-boilerplate/blob/master/classes/Bootstrap.php#L43) to [debug the bootstrap's class loader and see](https://i.imgur.com/Rg2bSEq.png) which classes are loaded and if they load on the requested page and check the execution time of the code run in each class
+
+
+### Frontend (Webpack)
+Read more here: https://github.com/wp-strap/wordpress-webpack-workflow
+
+**Styling (CSS)**
+
+>- **Minification** in production mode handled by Webpack
+>- [**PostCSS**](http://postcss.org/) for handy tools during post CSS transformation using Webpack's [**PostCSS-loader**](https://webpack.js.org/loaders/postcss-loader/)
+>- **Auto-prefixing** using PostCSS's [**autoprefixer**](https://github.com/postcss/autoprefixer) to parse CSS and add vendor prefixes to CSS rules using values from [Can I Use](https://caniuse.com/). It is [recommended](https://developers.google.com/web/tools/setup/setup-buildtools#dont_trip_up_with_vendor_prefixes) by Google and used in Twitter and Alibaba.
+>- [**PurgeCSS**](https://github.com/FullHuman/purgecss) which scans your php (template) files to remove unused selectors from your css when in production mode, resulting in smaller css files.
+>- **Sourcemaps** generation for debugging purposes with [various styles of source mapping](https://webpack.js.org/configuration/devtool/) handled by WebPack
+>- [**Stylelint**](https://stylelint.io/) that helps you avoid errors and enforce conventions in your styles. It includes a [linting tool for Sass](https://github.com/kristerkari/stylelint-scss).
+
+**Styling when using PostCSS-only**
+>- Includes [**postcss-import**](https://github.com/postcss/postcss-import) to consume local files, node modules or web_modules with the @import statement
+>- Includes [**postcss-import-ext-glob**](https://github.com/dimitrinicolas/postcss-import-ext-glob) that extends postcss-import path resolver to allow glob usage as a path
+>- Includes [**postcss-nested**](https://github.com/postcss/postcss-nested) to unwrap nested rules like how Sass does it.
+>- Includes [**postcss-nested-ancestors**](https://github.com/toomuchdesign/postcss-nested-ancestors) that introduces ^& selector which let you reference any parent ancestor selector with an easy and customizable interface
+>- Includes [**postcss-advanced-variables**](https://github.com/jonathantneal/postcss-advanced-variables) that lets you use Sass-like variables, conditionals, and iterators in CSS.
+
+
+**Styling when using Sass+PostCSS**
+> - **Sass to CSS conversion** using Webpack's [**sass-loader**](https://webpack.js.org/loaders/sass-loader/)
+>- Includes [**Sass magic importer**](https://github.com/maoberlehner/node-sass-magic-importer) to do lot of fancy things with Sass @import statements
+
+
+**JavaScript**
+> - [**BabelJS**](https://babeljs.io/) Webpack loader to use next generation Javascript with a  **BabelJS Configuration file**
+>- **Minification** in production mode
+>- [**Code Splitting**](https://webpack.js.org/guides/code-splitting/), being able to structure JavaScript code into modules & bundles
+>- **Sourcemaps** generation for debugging purposes with [various styles of source mapping](https://webpack.js.org/configuration/devtool/) handled by WebPack
+>- [**ESLint**](https://eslint.org/) find and fix problems in your JavaScript code with a  **linting configuration** including configurations and custom rules for WordPress development.
+>- [**Prettier**](https://prettier.io/) for automatic JavaScript / TypeScript code **formatting**
+
+**Images**
+
+> - [**ImageMinimizerWebpackPlugin**](https://webpack.js.org/plugins/image-minimizer-webpack-plugin/) + [**CopyWebpackPlugin**](https://webpack.js.org/plugins/copy-webpack-plugin/)
+    to optimize (compress) all images using
+>- _File types: `.png`, `.jpg`, `.jpeg`, `.gif`, `.svg`_
+
+**Translation**
+
+> - [**WP-Pot**](https://github.com/wp-pot/wp-pot-cli) scans all the files and generates `.pot` file automatically for i18n and l10n
+
+**BrowserSync, Watcher & WebpackBar**
+
+> - [**Watch Mode**](https://webpack.js.org/guides/development/#using-watch-mode), watches for changes in files to recompile
+>- _File types: `.css`, `.html`, `.php`, `.js`_
+>- [**BrowserSync**](https://browsersync.io/), synchronising browsers, URLs, interactions and code changes across devices and automatically refreshes all the browsers on all devices on changes
+>- [**WebPackBar**](https://github.com/nuxt/webpackbar) so you can get a real progress bar while development which also includes a **profiler**
+
+**Configuration**
+
+> - All configuration files `.prettierrc.js`, `.eslintrc.js`, `.stylelintrc.js`, `babel.config.js`, `postcss.config.js` are organised in a single folder
+>- The Webpack configuration is divided into 2 environmental config files for the development and production build/environment
+
+## Requirements
+- [Composer](https://getcomposer.org/doc/00-intro.md)
+- [Node.js](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
+- [NPM](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
+- [Yarn](https://classic.yarnpkg.com/en/docs/install/#mac-stable)
 
 ## File structure
 You can add your own new class files by naming them correctly and putting the files in the most appropriate location,
@@ -95,9 +198,9 @@ the class. The idea of this organisation is to be more conscious of structuring 
 └──assets
     ├── src                      # (incl. when using webpack) Holds all the source files
     │   ├── images               # Uncompressed images
-    │   ├── scss                 # Holds the SCSS files
-    │   │ ├─ frontend.scss       # For front-end styling
-    │   │ └─ backend.scss        # For back-end / wp-admin styling
+    │   ├── scss/pcss            # Holds the Sass/PostCSS files
+    │   │ ├─ frontend.scss/pcss  # For front-end styling
+    │   │ └─ backend.scss/pcss   # For back-end / wp-admin styling
     │   └── js                   # Holds the JS files
     │     ├─ frontend.js         # For front-end scripting
     │     └─ backend.js          # For back-end / wp-admin scripting
@@ -114,7 +217,7 @@ the class. The idea of this organisation is to be more conscious of structuring 
 2. When using Webpack; edit the BrowserSync settings in `webpack.config.js` which applies to your local/server environment
     - You can also disable BrowserSync, Eslint & Stylelint in `webpack.config.js`
     - You may want to configure the files in `/webpack/` and `webpack.config.js` to better suite your needs
-3. You can activate the plugin in WordPress and work on it straight away. Good luck!
+3. You can activate the plugin in WordPress and work on it straight away. 
 
 ### Acceptance & Unit Testing
 
