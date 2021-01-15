@@ -310,3 +310,20 @@ yarn prettier
 # To fix and format the js files in assets/src/js
 yarn prettier:fix
 ```
+
+## Boilerplate's Changelog
+
+Documenting this project's progress...
+#### January 15, 2021
+* refactor: (webpack/frontend) Migrated from NPM to Yarn for speed, `install` went from 183.281s to 65.76s-90.02s.
+#### January 14, 2021
+* feat: Added POT File with all the translation strings
+* refactor: Moved classes array to own config file
+* feat: Added npx CLI build script + docs
+#### January 9, 2021
+* refactor: Rename plugin (meta) data to replace-able names
+#### January 8, 2021
+* feat: Added PHP_CodeSniffer with WordPress-Coding-Standards including configuration file
+* feat(.travis.yml): added TravisCI configuration file
+* feat: Added bootstrap classes debugger method
+* feat: `README.md` file
