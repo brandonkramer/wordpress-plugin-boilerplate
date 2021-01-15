@@ -78,10 +78,10 @@ a `npm install `
 >- Ready to use [**TravisCI**](https://travis-ci.org/) configuration for automatic testing & continuous integration which currently only validates the plugin code with PHPCodeSniffer during automated testing when being deployed, but can also be extended to test unit/acceptance cases from Codeception
 >- When a Continuous Integration pipeline is in place, you can make it a prerequisite for pull requests to be merged. Automating the high-level testing can save you lots of time.
 
-**Prettified WP_DEBUG Errors & Classes debug array**
+**Prettified errors & Classes debug array**
 >- Includes a function called `Errors::wpDie` to show a [prettified WP_DEBUG error](https://i.imgur.com/PFoIwxD.png) with the plugin information and file source
 >- Includes a function called `Errors::pluginDie` to kill the plugin and show a [prettified admin notification](https://i.imgur.com/WGE9sBv.png) with the plugin information and file source
->- Includes a [function if set true](https://github.com/wp-strap/wordpress-plugin-boilerplate/blob/master/classes/Bootstrap.php#L43) to [debug the bootstrap's class loader and see](https://i.imgur.com/Rg2bSEq.png) which classes are loaded and if they load on the requested page and check the execution time of the code run in each class
+>- Includes a [function if set true](https://github.com/wp-strap/wordpress-plugin-boilerplate/blob/master/classes/Bootstrap.php#L43) to [debug the bootstrap's class loader and see](https://i.imgur.com/Rg2bSEq.png) which classes are loaded, if they load on the requested page, in which order and to check the execution time of the code run in each class
 
 
 ### Frontend (Webpack)
