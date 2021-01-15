@@ -85,7 +85,7 @@ a `npm install `
 
 
 ### Frontend (Webpack)
-Read more here: https://github.com/wp-strap/wordpress-webpack-workflow
+For front-end tooling the webpack workflow is being cloned. Read more about this workflow here: https://github.com/wp-strap/wordpress-webpack-workflow
 
 **Styling (CSS)**
 
