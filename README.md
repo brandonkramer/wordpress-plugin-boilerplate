@@ -178,6 +178,14 @@ the class. The idea of this organisation is to be more conscious of structuring 
 │   │   ├── Requirements.php     # Defines the requirements that are needed to run this plugin.
 │   │   ├── Setup.php            # Plugin setup hooks (activation, deactivation, uninstall)
 │   ├── Common                   # Utilities & helpers shared in the whole plugin application
+│   │   ├── Abstracts            # Here you can add abstract classes to extend your php classes
+│   │   │   ├── Base.php         # A base class which all classes extends to load in default methods, currently the plugin data is only being injected
+│   │   ├── Traits               # Here you can add handy traits to extend your php classes
+│   │   │   ├── Requester.php    # The requester trait to determine what we request; used to determine which classes we instantiate in the Bootstrap class
+│   │   │   ├── Singleton.php    # The singleton skeleton trait to instantiate the class only once
+│   │   ├── Utils                # Here you can add helper/utiliy functions, eg: array functions
+│   │   │   ├── Errors.php       # Utility class for the prettified errors and to write debug logs as string or array
+│   │   ├── Functions.php        # Main function class for external/global functions, eg: "plugin_name()->your_function"
 │   ├── Integrations             # Includes the integration with libraries, api's or other plugins
 │   ├── Compatibility            # 3rd party compatibility code
 ├──tests                         # Codeception test files
