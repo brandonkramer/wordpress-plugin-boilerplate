@@ -311,6 +311,133 @@ yarn prettier
 yarn prettier:fix
 ```
 
+## Composer.json dependencies
+
+<table>
+	<thead>
+	<tr>
+		<th>Depedency</th>
+		<th>Description</th>
+		<th>Version</th>
+	</tr>
+	</thead>
+	<thead>
+	<tr>
+		<th></th>
+		<th>Plugin Requirements</th>
+		<th></th>
+	</tr>
+	</thead>
+    <tbody>
+	<tr>
+		<td>micropackage/requirements</td>
+		<td>Allows you to test environment requirements to run your plugin.</td>
+		<td>1.0</td>
+	</tr>
+    </tbody>
+	<thead>
+	<tr>
+		<th></th>
+		<th>PHPCodeSniffer</th>
+		<th></th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr>
+		<td>dealerdirect/phpcodesniffer-composer-installer</td>
+		<td>Allows for easy installation of PHP_CodeSniffer coding standards (rulesets)</td>
+		<td>0.7.1</td>
+	</tr>
+	<tr>
+		<td>wp-coding-standards/wpcs</td>
+		<td>Collection of PHP_CodeSniffer rules (sniffs) to validate code developed for WordPress</td>
+		<td>*</td>
+	</tr>
+	<tr>
+		<td>automattic/phpcs-neutron-ruleset</td>
+		<td>Set of modern (PHP >7) linting guidelines for WordPress development</td>
+		<td>3.3</td>
+	</tr>
+	<tr>
+		<td>phpcompatibility/phpcompatibility-wp</td>
+		<td>Analyse the codebase of a WordPress-based project for PHP cross-version compatibility</td>
+		<td>2.1</td>
+	</tr>
+    </tbody>
+	<thead>
+	<tr>
+		<th></th>
+		<th>Codeception</th>
+		<th></th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr>
+		<td>lucatume/function-mocker</td>
+		<td>A Patchwork powered function mocker to mock function for testing</td>
+		<td>1.0</td>
+	</tr>
+	<tr>
+		<td>lucatume/wp-browser</td>
+		<td>Provides easy acceptance, functional, integration and unit testing for WordPress plugins, themes and whole sites using Codeception</td>
+		<td>3.0</td>
+	</tr>
+	<tr>
+		<td>Codeception/lib-innerbrowser</td>
+		<td>Parent library for all Codeception framework modules and PhpBrowser.</td>
+		<td>1.0</td>
+	</tr>
+	<tr>
+		<td>codeception/module-asserts</td>
+		<td>A Codeception module containing various assertions</td>
+		<td>1.0</td>
+	</tr>
+	<tr>
+		<td>codeception/module-phpbrowser</td>
+		<td>Use to perform web acceptance tests with non-javascript browser</td>
+		<td>1.0</td>
+	</tr>
+	<tr>
+		<td>codeception/module-webdriver</td>
+		<td>Run tests in real browsers using the W3C WebDriver protocol.</td>
+		<td>1.0</td>
+	</tr>
+	<tr>
+		<td>codeception/module-db</td>
+		<td>A database module for Codeception.</td>
+		<td>1.0</td>
+	</tr>
+	<tr>
+		<td>codeception/module-filesystem</td>
+		<td>A Codeception module for testing local filesystem.</td>
+		<td>1.0</td>
+	</tr>
+	<tr>
+		<td>codeception/module-cli</td>
+		<td>A Codeception module for testing basic shell commands and shell output.</td>
+		<td>1.0</td>
+	</tr>
+	<tr>
+		<td>codeception/module-rest</td>
+		<td>A REST module for Codeception</td>
+		<td>1.2</td>
+	</tr>
+	<tr>
+		<td>codeception/util-universalframework</td>
+		<td>Mock framework module used in internal Codeception tests</td>
+		<td>1.0</td>
+	</tr>
+	<tr>
+		<td>codeception/codeception-progress-reporter</td>
+		<td>Reporter for codeception with a progress bar</td>
+		<td>4.0.2</td>
+	</tr>
+	</tbody>
+</table>
+
+## Package.json dependencies
+https://github.com/wp-strap/wordpress-webpack-workflow#packagejson-dependencies
+
 ## Boilerplate's Changelog
 
 Documenting this project's progress...
