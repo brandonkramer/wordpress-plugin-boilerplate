@@ -25,7 +25,7 @@
 
 ## Quickstart
 
-![Image](https://media2.giphy.com/media/xnkKvAdDteo70lliWF/giphy.gif)
+![Image](https://media.giphy.com/media/2Fb95iB53xkOAlYeTv/source.gif)
 
 Should be run inside your plugins folder (wp-content/plugins).
 ```bash
