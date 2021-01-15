@@ -89,6 +89,7 @@ the class. The idea of this organisation is to be more conscious of structuring 
 │   ├── .stylelintrc.js          # Configuration for Stylelint
 │   ├── babel.config.js          # Configuration for BabelJS
 │   ├── postcss.config.js        # Configuration for PostCSS
+│   ├── config.base.js           # Holds the base config for webpack's devlopment & production mode
 │   ├── config.development.js    # Configuration for Webpack in development mode
 │   └── config.production.js     # Configuration for Webpack in production mode
 └──assets
@@ -146,57 +147,57 @@ the class. The idea of this organisation is to be more conscious of structuring 
 ## Frontend/Webpack tooling
 When using webpack then you can use the following for the front-end build process. ([Or read more here](https://github.com/wp-strap/wordpress-webpack-workflow))
 
-### Developing Locally
+## Developing Locally
 
 To work on the project locally (with Eslint, Stylelint & Prettier active), run:
 
 ```bash
-npm run dev
+yarn dev
 ```
 
 Or run with watcher & browserSync
 
 ```bash
-npm run dev:watch
+yarn dev:watch
 ```
 
 This will open a browser, watch all files (php, scss, js, etc) and reload the browser when you press save.
 
-### Building for Production
+## Building for Production
 
 To create an optimized production build (purged with PurgeCSS & fully minified CSS & JS files), run:
 
 ```bash
-npm run prod
+yarn prod
 ```
 
 Or run with watcher & browserSync
 
 ```bash
-npm run prod:watch
+yarn prod:watch
 ```
 
-### More Scripts/Tasks
+## More Scripts/Tasks
 
 ```bash
 # To scan for text-domain functions and generate WP POT translation file
-npm run translate
+yarn translate
 
 # To find problems in your JavaScript code
-npm run eslint 
+yarn eslint 
 
 # To find fix problems in your JavaScript code
-npm run eslint:fix
+yarn eslint:fix
 
 # To find problems in your sass/css code
-npm run stylelint
+yarn stylelint
 
 # To find fix problems in your sass/css code
-npm run stylelint:fix
+yarn stylelint:fix
 
 # To make sure files in assets/src/js are formatted
-npm run prettier
+yarn prettier
 
 # To fix and format the js files in assets/src/js
-npm run prettier:fix
+yarn prettier:fix
 ```

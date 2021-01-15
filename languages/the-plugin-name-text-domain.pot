@@ -1,8 +1,8 @@
-# Copyright (C) 2021 the-plugin-name
-# This file is distributed under the same license as the the-plugin-name package.
+# Copyright (C) 2021 {{the-project-name}}
+# This file is distributed under the same license as the {{the-project-name}} package.
 msgid ""
 msgstr ""
-"Project-Id-Version: {{the-plugin-name}}\n"
+"Project-Id-Version: {{the-project-name}}\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
