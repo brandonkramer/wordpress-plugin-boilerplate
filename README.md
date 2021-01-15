@@ -147,7 +147,7 @@ the class. The idea of this organisation is to be more conscious of structuring 
 ## Frontend/Webpack tooling
 When using webpack then you can use the following for the front-end build process. ([Or read more here](https://github.com/wp-strap/wordpress-webpack-workflow))
 
-## Developing Locally
+### Developing Locally
 
 To work on the project locally (with Eslint, Stylelint & Prettier active), run:
 
@@ -163,7 +163,7 @@ yarn dev:watch
 
 This will open a browser, watch all files (php, scss, js, etc) and reload the browser when you press save.
 
-## Building for Production
+### Building for Production
 
 To create an optimized production build (purged with PurgeCSS & fully minified CSS & JS files), run:
 
@@ -177,7 +177,7 @@ Or run with watcher & browserSync
 yarn prod:watch
 ```
 
-## More Scripts/Tasks
+### More Scripts/Tasks
 
 ```bash
 # To scan for text-domain functions and generate WP POT translation file
