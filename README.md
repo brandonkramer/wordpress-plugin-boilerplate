@@ -69,8 +69,7 @@ a `npm install `
 
 
 **Plugin requirements**
->- [**Requirements micropackage**](https://github.com/micropackage/requirements) is built in that allows you to test environment requirements to run your plugin.
->- It can test: PHP version, PHP Extensions, WordPress version, Active plugins, Current theme, DocHooks support
+>- [**Requirements micropackage**](https://github.com/micropackage/requirements) is built in that allows you to test environment requirements to run your plugin. It can test: PHP version, PHP Extensions, WordPress version, Active plugins, Current theme, DocHooks support
 >- Easily to configure using a [**simple array**](https://github.com/wp-strap/wordpress-plugin-boilerplate/blob/master/classes/Config/Requirements.php#L35)
 >- If the plugin doesn't pass the test then it will disable the plugin automatically for the user in WordPress and show a notification in the back-end
 
