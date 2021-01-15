@@ -247,7 +247,7 @@ the class. The idea of this organisation is to be more conscious of structuring 
 - A great article can be found here: https://stevegrunwell.com/blog/travis-ci-wordpress-plugins/
 
 ## Frontend/Webpack tooling
-When using webpack then you can use the following for the front-end build process. ([Or read more here](https://github.com/wp-strap/wordpress-webpack-workflow))
+When using webpack then you can use the following for the front-end build process. [Read here more](https://github.com/wp-strap/wordpress-webpack-workflow) for more information about this workflow.
 
 ### Developing Locally
 
