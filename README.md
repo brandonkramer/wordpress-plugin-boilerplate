@@ -76,7 +76,6 @@ a `npm install `
 
 **TravisCI**
 >- Ready to use [**TravisCI**](https://travis-ci.org/) configuration for automatic testing & continuous integration which currently only validates the plugin code with PHPCodeSniffer during automated testing when being deployed, but can also be extended to test unit/acceptance cases from Codeception
->- When a Continuous Integration pipeline is in place, you can make it a prerequisite for pull requests to be merged. Automating the high-level testing can save you lots of time.
 
 **Prettified errors & Classes debug array**
 >- Includes a function called `Errors::wpDie` to show a [prettified WP_DEBUG error](https://i.imgur.com/PFoIwxD.png) with the plugin information and file source
