@@ -34,7 +34,7 @@ npx wp-strap plugin
 
 You can also use the npx script with predefined answers to get a quicker start
 ```bash
-npx wp-strap plugin "projectName:Your plugin name" "description:Test the plugin" "pluginVersion:1.0.0" license:MIT "author:The Dev Company" authorEmail:hello@the-dev-company.com url:the-dev-company.com webpack:Y codesniffer:Y codeception:Y travisCi:Y
+npx wp-strap plugin "projectName:Your plugin name" "description:Test the plugin" "pluginVersion:1.0.0" license:MIT "author:The Dev Company" authorEmail:hello@the-dev-company.com url:the-dev-company.com webpack:Y codesniffer:Y codeception:Y travisCi:Y css:Sass+PostCSS
 ```
 
 It will take a couple of minutes to install after your terminal input; it will clone the git repo's, search and replace
@@ -89,7 +89,7 @@ the class. The idea of this organisation is to be more conscious of structuring 
 │   ├── .stylelintrc.js          # Configuration for Stylelint
 │   ├── babel.config.js          # Configuration for BabelJS
 │   ├── postcss.config.js        # Configuration for PostCSS
-│   ├── config.base.js           # Holds the base config for webpack's devlopment & production mode
+│   ├── config.base.js           # Base config for Webpack's development & production mode
 │   ├── config.development.js    # Configuration for Webpack in development mode
 │   └── config.production.js     # Configuration for Webpack in production mode
 └──assets
