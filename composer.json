@@ -9,7 +9,7 @@
   "homepage": "https://wp-strap.com",
   "autoload": {
     "psr-4": {
-      "ThePluginName\\": "classes/"
+      "ThePluginName\\": "src/"
     }
   },
   "scripts": {

@@ -17,97 +17,97 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. translators: %s: php class namespace
-#: ../classes/Bootstrap.php:182
+#: ../src/Bootstrap.php:182
 msgid "Could not load class \"%s\". The \"init\" method is probably missing or try a `composer dumpautoload -o` to refresh the autoloader."
 msgstr ""
 
-#: ../classes/Bootstrap.php:186
+#: ../src/Bootstrap.php:186
 msgid "Plugin initialize failed"
 msgstr ""
 
-#: ../classes/App/Backend/Customizer.php:71, ../classes/App/Backend/Customizer.php:113
+#: ../src/App/Backend/Customizer.php:71, ../src/App/Backend/Customizer.php:113
 msgid "Related posts"
 msgstr ""
 
-#: ../classes/App/Backend/Customizer.php:88
+#: ../src/App/Backend/Customizer.php:88
 msgid "Number of posts to show"
 msgstr ""
 
-#: ../classes/App/Backend/Notices.php:52
+#: ../src/App/Backend/Notices.php:52
 msgid "This is an example of a notice that appears on the settings page."
 msgstr ""
 
 #. translators: %s: post type singular title
 #. translators: %s: post type singular title
-#: ../classes/App/General/PostTypes.php:66, ../classes/App/General/PostTypes.php:68
+#: ../src/App/General/PostTypes.php:66, ../src/App/General/PostTypes.php:68
 msgid "New %s"
 msgstr ""
 
 #. translators: %s: post type singular title
-#: ../classes/App/General/PostTypes.php:67
+#: ../src/App/General/PostTypes.php:67
 msgid "Add New %s"
 msgstr ""
 
 #. translators: %s: post type singular title
-#: ../classes/App/General/PostTypes.php:69
+#: ../src/App/General/PostTypes.php:69
 msgid "Edit %s"
 msgstr ""
 
 #. translators: %s: post type singular title
-#: ../classes/App/General/PostTypes.php:70
+#: ../src/App/General/PostTypes.php:70
 msgid "View %s"
 msgstr ""
 
 #. translators: %s: post type title
-#: ../classes/App/General/PostTypes.php:71
+#: ../src/App/General/PostTypes.php:71
 msgid "All %s"
 msgstr ""
 
 #. translators: %s: post type title
-#: ../classes/App/General/PostTypes.php:72
+#: ../src/App/General/PostTypes.php:72
 msgid "Search %s"
 msgstr ""
 
-#: ../classes/App/Rest/Example.php:65
+#: ../src/App/Rest/Example.php:65
 msgid "Text field demo of Post type"
 msgstr ""
 
-#: ../classes/App/Rest/Example.php:128
+#: ../src/App/Rest/Example.php:128
 msgid "Failed to update post views."
 msgstr ""
 
 #. translators: %s: request function
-#: ../classes/Common/Traits/Requester.php:53
+#: ../src/Common/Traits/Requester.php:53
 msgid "Unknown request type: %s"
 msgstr ""
 
-#: ../classes/Common/Traits/Requester.php:56
+#: ../src/Common/Traits/Requester.php:56
 msgid "Classes are not being correctly requested"
 msgstr ""
 
-#: ../classes/Common/Utils/Errors.php:50
+#: ../src/Common/Utils/Errors.php:50
 msgid "&rsaquo; Fatal Error"
 msgstr ""
 
 #. translators: %s: file path
 #. translators: %s: file path
-#: ../classes/Common/Utils/Errors.php:61, ../classes/Common/Utils/Errors.php:97
+#: ../src/Common/Utils/Errors.php:61, ../src/Common/Utils/Errors.php:97
 msgid "Error source: %s"
 msgstr ""
 
-#: ../classes/Common/Utils/Errors.php:86
+#: ../src/Common/Utils/Errors.php:86
 msgid "&rsaquo; Plugin Disabled"
 msgstr ""
 
-#: ../classes/Integrations/Widget/HTML_Widget.php:68
+#: ../src/Integrations/Widget/HTML_Widget.php:68
 msgid "Displays HTML code with syntax highlighting."
 msgstr ""
 
-#: ../classes/Integrations/Widget/HTML_Widget.php:72
+#: ../src/Integrations/Widget/HTML_Widget.php:72
 msgid "HTML Test Widget"
 msgstr ""
 
-#: ../classes/Integrations/Widget/HTML_Widget.php:129
+#: ../src/Integrations/Widget/HTML_Widget.php:129
 msgid "Content:"
 msgstr ""
 

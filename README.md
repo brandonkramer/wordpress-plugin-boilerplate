@@ -13,8 +13,7 @@
 
 * The Boilerplate is based on the [Plugin API](https://codex.wordpress.org/Plugin_API)
   , [Coding Standards](https://codex.wordpress.org/WordPress_Coding_Standards),
-  and [Documentation Standards](https://make.wordpress.org/core/handbook/best-practices/inline-documentation-standards/php/)
-  .
+  and [Documentation Standards](https://make.wordpress.org/core/handbook/best-practices/inline-documentation-standards/php/).
 * Includes Composer, Requirements micropackage to test environment requirements for your plugin, Codeception to do
   unit/acceptance testing, PHPCodeSniffer with WordPress Coding Standards to validate your code, TravisCI configuration
   for automatic testing & continuous integration, object-oriented code structure for better overview, an automatic class
@@ -53,7 +52,7 @@ a `npm install `
 
 **Object-oriented & classes autoloader**
 >- Includes a [**OOP-style**](https://developer.wordpress.org/plugins/plugin-basics/best-practices/#object-oriented-programming-method) structure for building a high-quality PHP development
->- Classes are being [auto-instantiated](https://github.com/wp-strap/wordpress-plugin-boilerplate/blob/master/classes/Bootstrap.php#L79) by extending the PSR-4 Autoloader from Composer and [based on type of request and folder structure](https://github.com/wp-strap/wordpress-plugin-boilerplate/blob/master/classes/Config/Classes.php#L28). So you can add your own new class files by naming them correctly and putting the files in the most appropriate location and work in it straight away without having to include them or instantiate them manually. Composer's Autoloader and the Bootstrap class will auto include your file and instantiate the class.
+>- Classes are being [auto-instantiated](https://github.com/wp-strap/wordpress-plugin-boilerplate/blob/master/src/Bootstrap.php#L79) by extending the PSR-4 Autoloader from Composer and [based on type of request and folder structure](https://github.com/wp-strap/wordpress-plugin-boilerplate/blob/master/src/Config/Classes.php#L28) for which you can add the [types of request here](https://github.com/wp-strap/wordpress-plugin-boilerplate/blob/master/src/Common/Traits/Requester.php#L30). So you can add your own new class files by naming them correctly and putting the files in the most appropriate location and work in it straight away without having to include them or instantiate them manually. Composer's Autoloader and the Bootstrap class will auto include your file and instantiate the class.
 >- The structure follows the the [Plugin API](https://codex.wordpress.org/Plugin_API)
    , [Coding Standards](https://codex.wordpress.org/WordPress_Coding_Standards),
    and [Documentation Standards](https://make.wordpress.org/core/handbook/best-practices/inline-documentation-standards/php/)
@@ -70,7 +69,7 @@ a `npm install `
 
 **Plugin requirements**
 >- [**Requirements micropackage**](https://github.com/micropackage/requirements) is built in that allows you to test environment requirements to run your plugin. It can test: PHP version, PHP Extensions, WordPress version, Active plugins, Current theme, DocHooks support
->- Easily to configure using a [**simple array**](https://github.com/wp-strap/wordpress-plugin-boilerplate/blob/master/classes/Config/Requirements.php#L35)
+>- Easily to configure using a [**simple array**](https://github.com/wp-strap/wordpress-plugin-boilerplate/blob/master/src/Config/Requirements.php#L35)
 >- If the plugin doesn't pass the test then it will disable the plugin automatically for the user in WordPress and show a notification in the back-end
 
 
@@ -80,7 +79,7 @@ a `npm install `
 **Prettified errors & Classes debug array**
 >- Includes a function called `Errors::wpDie` to show a [prettified WP_DEBUG error](https://i.imgur.com/PFoIwxD.png) with the plugin information and file source
 >- Includes a function called `Errors::pluginDie` to kill the plugin and show a [prettified admin notification](https://i.imgur.com/WGE9sBv.png) with the plugin information and file source
->- Includes a [function if set true](https://github.com/wp-strap/wordpress-plugin-boilerplate/blob/master/classes/Bootstrap.php#L43) to [debug the bootstrap's class loader and see](https://i.imgur.com/Rg2bSEq.png) which classes are loaded, if they load on the requested page, in which order and to check the execution time of the code run in each class
+>- Includes a [function if set true](https://github.com/wp-strap/wordpress-plugin-boilerplate/blob/master/src/Bootstrap.php#L43) to [debug the bootstrap's class loader and see](https://i.imgur.com/Rg2bSEq.png) which classes are loaded, if they load on the requested page, in which order and to check the execution time of the code run in each class
 
 
 ### Frontend (Webpack)
@@ -161,7 +160,7 @@ the class. The idea of this organisation is to be more conscious of structuring 
 ├──webpack.config.js             # (incl. when using webpack) Holds all the base Webpack configurations
 │
 │ ## Folders
-├──classes                       # Holds all the plugin php classes
+├──src                           # Holds all the plugin php classes
 │   ├── Bootstrap.php            # Bootstraps the plugin and auto-instantiate classes
 │   ├── App                      # Holds the plugin application-specific functionality
 │   │   ├── Frontend             # All public-facing hooks/functionality
@@ -176,7 +175,7 @@ the class. The idea of this organisation is to be more conscious of structuring 
 │   │   ├── Plugin.php           # Plugin data which are used through the plugin
 │   │   ├── Requirements.php     # Defines the requirements that are needed to run this plugin.
 │   │   ├── Setup.php            # Plugin setup hooks (activation, deactivation, uninstall)
-│   ├── Common                   # Utilities & helpers shared in the whole plugin application
+│   ├── Common                   # Utilities & helpers shared in the whole plugin 
 │   │   ├── Abstracts            # Here you can add abstract classes to extend your php classes
 │   │   │   ├── Base.php         # A base class which all classes extends to load in default methods, currently the plugin data is only being injected
 │   │   ├── Traits               # Here you can add handy traits to extend your php classes
@@ -243,7 +242,7 @@ the class. The idea of this organisation is to be more conscious of structuring 
   - https://github.com/PHPCompatibility/PHPCompatibilityWP
 
 ### Plugin requirements
-- Set your plugin requirements in `classes/Config/Requirements.php` using a simple array
+- Set your plugin requirements in `src/Config/Requirements.php` using a simple array
 - It can test: PHP version, PHP Extensions, WordPress version, Active plugins, Current theme, DocHooks support
 - If the plugin doesn't pass the test then it will be disabled automatically in WordPress and show a notification in the back-end
 - Documentation can be found here: https://github.com/micropackage/requirements

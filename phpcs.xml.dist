@@ -3,7 +3,7 @@
     <description>Ruleset for the The Plugin Name.</description>
 
     <file>the-plugin-name.php</file>
-    <file>./classes/</file>
+    <file>./src/</file>
 
     <!-- Additional arguments. -->
     <arg value="sp"/>
