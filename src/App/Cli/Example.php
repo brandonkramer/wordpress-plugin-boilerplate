@@ -35,7 +35,7 @@ class Example extends Base {
 		 * @see Requester::isCli()
 		 * @see Bootstrap::__construct
 		 */
-		if ( class_exists( \WP_CLI ) ) {
+		if ( class_exists( '\WP_CLI' ) ) {
 			\WP_CLI::add_command( 'plugin_commandname', [ $this, 'commandExample' ] );
 		}
 	}
