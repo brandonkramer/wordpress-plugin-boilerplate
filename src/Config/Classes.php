@@ -31,7 +31,7 @@ final class Classes {
 		return [
 			[ 'init' => 'Integrations' ],
 			[ 'init' => 'App\\General' ],
-			[ 'init' => 'App\\Frontend', 'on_request' => 'frontend' ],
+			[ 'init' => 'App\\Frontend', 'on_request' => 'frontend', 'exclude' => '\\Settings' ],
 			[ 'init' => 'App\\Backend', 'on_request' => 'backend' ],
 			[ 'init' => 'App\\Rest', 'on_request' => 'rest' ],
 			[ 'init' => 'App\\Cli', 'on_request' => 'cli' ],

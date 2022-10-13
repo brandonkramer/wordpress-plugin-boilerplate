@@ -144,7 +144,7 @@ final class Bootstrap extends Base {
 			) {
 				continue;
 			}
-			$this->getClasses( $class['init'] );
+			$this->getClasses($class['init'], isset($class['exclude']) ? $class['exclude'] : '');
 		}
 		$this->initClasses();
 		$this->bootstrap['initialized_classes']['timer'] = $this->stopExecutionTimer( $set_timer, 'Total execution time of initialized classes' );
@@ -183,10 +183,11 @@ final class Bootstrap extends Base {
 	 * Get classes based on the directory automatically using the Composer autoload
 	 *
 	 * @param string $namespace Class name to find.
+	 * @param string $exclude Class name to exclude from loading.
 	 * @return array Return the classes.
 	 * @since 1.0.0
 	 */
-	public function getClasses( string $namespace ): array {
+	public function getClasses( string $namespace, string $exclude = ''): array {
 		$namespace = $this->plugin->namespace() . '\\' . $namespace;
 		if ( is_object( $this->composer ) !== false ) {
 			$classmap = $this->composer->getClassMap();
@@ -201,6 +202,9 @@ final class Bootstrap extends Base {
 				$classes = array_keys( $classmap );
 				foreach ( $classes as $class ) {
 					if ( 0 !== strncmp( (string) $class, $namespace, strlen( $namespace ) ) ) {
+						continue;
+					}
+					if (!empty($exclude) && $class === $namespace . $exclude) {
 						continue;
 					}
 					$this->class_list[] = $class;
